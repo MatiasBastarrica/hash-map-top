@@ -5,6 +5,10 @@ export class HashMap {
   }
 
   hash(key) {
+    if (typeof key !== "string") {
+      throw new Error("The key should be a string");
+    }
+
     let hashCode = 0;
 
     const primeNumber = 31;
