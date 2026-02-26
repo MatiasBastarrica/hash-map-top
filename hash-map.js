@@ -1,3 +1,5 @@
+import { LinkedList } from "./linked-lists.js";
+
 export class HashMap {
   constructor() {
     this.capacity = 16;
