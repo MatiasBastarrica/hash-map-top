@@ -6,20 +6,20 @@ export class LinkedList {
     this.tailNode = null;
   }
 
-  append(value) {
+  append(key, value) {
     if (!this.headNode) {
       this.prepend(value);
       this.tailNode = this.headNode;
     } else {
       const prevNode = this.tailNode;
-      this.tailNode = new Node(value);
+      this.tailNode = new Node(key, value);
       prevNode.nextNode = this.tailNode;
     }
   }
 
-  prepend(value) {
+  prepend(key, value) {
     const nextNode = this.headNode;
-    this.headNode = new Node(value, nextNode);
+    this.headNode = new Node(key, value, nextNode);
   }
 
   size() {
