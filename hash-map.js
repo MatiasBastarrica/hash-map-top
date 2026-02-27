@@ -1,10 +1,16 @@
 import { LinkedList } from "./linked-lists.js";
 
 export class HashMap {
+  #buckets;
   constructor() {
     this.capacity = 16;
     this.loadFactor = 0.75;
+    this.#buckets = Array.from(
+      { length: this.capacity },
+      () => new LinkedList(),
+    );
   }
+  #size = 0;
 
   hash(key) {
     if (typeof key !== "string") {
