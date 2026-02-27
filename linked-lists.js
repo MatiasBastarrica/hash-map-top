@@ -14,6 +14,15 @@ export class LinkedList {
     }
   }
 
+  remove(key) {
+    for (let node = this.headNode; node !== null; node = node.nextNode) {
+      if (node.nextNode.key === key && node.nextNode !== null) {
+        node.nextNode = node.nextNode.nextNode;
+        break;
+      }
+    }
+  }
+
   append(key, value) {
     if (!this.headNode) {
       this.prepend(key, value);

@@ -59,6 +59,18 @@ export class HashMap {
     }
   }
 
+  remove(key) {
+    const hashCode = this.hash(key);
+    const linkedList = this.#buckets[hashCode];
+    if (linkedList.contains(key)) {
+      // continue here
+      linkedList.remove(key);
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   getBuckets(index) {
     if (typeof index === "number") {
       return this.#buckets[index];

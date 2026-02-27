@@ -4,5 +4,7 @@ const test = new HashMap();
 test.set("mario", "bros");
 test.set("Mario", "galaxy");
 test.set("mario", "sunshine");
-
-console.log(test.has("amrio"));
+test.set("mArio", "oddysey");
+console.log(test.getBuckets(4).toString());
+test.remove("mArio");
+console.log(test.getBuckets(4).toString());
