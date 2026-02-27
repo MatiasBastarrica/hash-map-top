@@ -6,6 +6,14 @@ export class LinkedList {
     this.tailNode = null;
   }
 
+  getNode(key) {
+    for (let node = this.headNode; node !== null; node = node.nextNode) {
+      if (node.key === key) {
+        return node;
+      }
+    }
+  }
+
   append(key, value) {
     if (!this.headNode) {
       this.prepend(key, value);

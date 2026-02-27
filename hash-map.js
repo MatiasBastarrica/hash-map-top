@@ -30,6 +30,8 @@ export class HashMap {
   set(key, value) {
     const hashCode = this.hash(key);
     const linkedList = this.#buckets[hashCode];
+    if (linkedList.contains(key)) {
+    }
     linkedList.append(key, value);
     return linkedList;
     // if (node.contains(value)) {
@@ -38,6 +40,6 @@ export class HashMap {
   }
 
   getBuckets() {
-    return this.#buckets[4];
+    return this.#buckets[4].getNode("mario");
   }
 }
