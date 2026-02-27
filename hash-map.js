@@ -38,6 +38,17 @@ export class HashMap {
     }
   }
 
+  get(key) {
+    const hashCode = this.hash(key);
+    const linkedList = this.#buckets[hashCode];
+    if (linkedList.contains(key)) {
+      const node = linkedList.getNode(key);
+      return node.value;
+    } else {
+      return null;
+    }
+  }
+
   getBuckets(index) {
     if (typeof index === "number") {
       return this.#buckets[index];
