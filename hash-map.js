@@ -31,15 +31,18 @@ export class HashMap {
     const hashCode = this.hash(key);
     const linkedList = this.#buckets[hashCode];
     if (linkedList.contains(key)) {
+      const node = linkedList.getNode(key);
+      node.value = value;
+    } else {
+      linkedList.append(key, value);
     }
-    linkedList.append(key, value);
-    return linkedList;
-    // if (node.contains(value)) {
-    //   let index = this
-    // }
   }
 
-  getBuckets() {
-    return this.#buckets[4].getNode("mario");
+  getBuckets(index) {
+    if (typeof index === "number") {
+      return this.#buckets[index];
+    } else {
+      return this.#buckets;
+    }
   }
 }
