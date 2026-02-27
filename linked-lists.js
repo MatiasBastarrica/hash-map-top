@@ -15,8 +15,11 @@ export class LinkedList {
   }
 
   remove(key) {
+    if (this.headNode.key == key) {
+      this.headNode = this.headNode.nextNode;
+    }
     for (let node = this.headNode; node !== null; node = node.nextNode) {
-      if (node.nextNode.key === key && node.nextNode !== null) {
+      if (node.nextNode !== null && node.nextNode.key === key) {
         node.nextNode = node.nextNode.nextNode;
         break;
       }
