@@ -77,6 +77,16 @@ export class HashMap {
     return this.#size;
   }
 
+  clear() {
+    this.#buckets.forEach((bucket) => {
+      if (bucket.headNode !== null) {
+        bucket.headNode = null;
+        bucket.tailNode = null;
+      }
+    });
+    this.#size = 0;
+  }
+
   getBuckets(index) {
     if (typeof index === "number") {
       return this.#buckets[index];

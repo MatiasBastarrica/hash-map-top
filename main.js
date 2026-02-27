@@ -9,4 +9,6 @@ test.set("mArio", "oddysey");
 // console.log(test.remove("mARio"));
 test.set("zelda", "skyward sword");
 console.log(test.getBuckets());
-console.log(test.length());
+test.clear();
+console.log(test.getBuckets());
+// console.log(test.length());
