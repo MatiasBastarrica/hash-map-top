@@ -35,6 +35,7 @@ export class HashMap {
       node.value = value;
     } else {
       linkedList.append(key, value);
+      this.#size += 1;
     }
   }
 
@@ -65,10 +66,15 @@ export class HashMap {
     if (linkedList.contains(key)) {
       // continue here
       linkedList.remove(key);
+      this.#size -= 1;
       return true;
     } else {
       return false;
     }
+  }
+
+  length() {
+    return this.#size;
   }
 
   getBuckets(index) {
