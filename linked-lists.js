@@ -93,7 +93,7 @@ export class LinkedList {
     return removedNode.value;
   }
 
-  contains(value) {
+  contains(key) {
     if (!this.headNode) {
       return false;
     }
@@ -103,7 +103,7 @@ export class LinkedList {
       currentNode !== null;
       currentNode = currentNode.nextNode
     ) {
-      if (currentNode.value === value) {
+      if (currentNode.key === key) {
         result = true;
         break;
       }

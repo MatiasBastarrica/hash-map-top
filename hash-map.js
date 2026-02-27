@@ -38,6 +38,6 @@ export class HashMap {
   }
 
   getBuckets() {
-    return this.#buckets;
+    return this.#buckets[4];
   }
 }
