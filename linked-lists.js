@@ -8,7 +8,7 @@ export class LinkedList {
 
   append(key, value) {
     if (!this.headNode) {
-      this.prepend(value);
+      this.prepend(key, value);
       this.tailNode = this.headNode;
     } else {
       const prevNode = this.tailNode;

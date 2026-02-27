@@ -30,7 +30,7 @@ export class HashMap {
   set(key, value) {
     const hashCode = this.hash(key);
     const linkedList = this.#buckets[hashCode];
-    linkedList.append(value);
+    linkedList.append(key, value);
     return linkedList;
     // if (node.contains(value)) {
     //   let index = this
