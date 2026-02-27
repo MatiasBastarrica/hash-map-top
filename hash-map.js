@@ -26,4 +26,18 @@ export class HashMap {
 
     return hashCode;
   }
+
+  set(key, value) {
+    const hashCode = this.hash(key);
+    const linkedList = this.#buckets[hashCode];
+    linkedList.append(value);
+    return linkedList;
+    // if (node.contains(value)) {
+    //   let index = this
+    // }
+  }
+
+  getBuckets() {
+    return this.#buckets;
+  }
 }
