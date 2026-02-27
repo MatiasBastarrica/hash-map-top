@@ -12,6 +12,7 @@ export class HashMap {
   }
   #size = 0;
   #keysArr = [];
+  #valuesArr = [];
 
   hash(key) {
     if (typeof key !== "string") {
@@ -38,6 +39,7 @@ export class HashMap {
       linkedList.append(key, value);
       this.#size += 1;
       this.#keysArr.push(key);
+      this.#valuesArr.push(value);
     }
   }
 
@@ -70,6 +72,8 @@ export class HashMap {
       this.#size -= 1;
       const keyIndex = this.#keysArr.indexOf(key);
       this.#keysArr.splice(keyIndex, 1);
+      const valueIndex = this.#valuesArr.indexOf(value);
+      this.#valuesArr.splice(valueIndex, 1);
       return true;
     } else {
       return false;
@@ -89,10 +93,15 @@ export class HashMap {
     });
     this.#size = 0;
     this.#keysArr = [];
+    this.#valuesArr = [];
   }
 
   keys() {
     return this.#keysArr;
+  }
+
+  values() {
+    return this.#valuesArr;
   }
 
   getBuckets(index) {
