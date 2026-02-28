@@ -18,6 +18,9 @@ export class LinkedList {
     if (this.headNode.key == key) {
       this.headNode = this.headNode.nextNode;
     }
+    if (this.tailNode.key == key) {
+      this.tailNode = null;
+    }
     for (let node = this.headNode; node !== null; node = node.nextNode) {
       if (node.nextNode !== null && node.nextNode.key === key) {
         node.nextNode = node.nextNode.nextNode;

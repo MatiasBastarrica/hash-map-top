@@ -1,20 +1,40 @@
 import { HashMap } from "./hash-map.js";
 
 const test = new HashMap();
-test.set("mario", "bros");
-test.set("Mario", "galaxy");
-test.set("mario", "sunshine");
-test.set("mArio", "oddysey");
+
+test.set("apple", "red");
+test.set("banana", "yellow");
+test.set("carrot", "orange");
+test.set("dog", "brown");
+test.set("elephant", "gray");
+test.set("frog", "green");
+test.set("grape", "purple");
+test.set("hat", "black");
+test.set("ice cream", "white");
+test.set("jacket", "blue");
+test.set("kite", "pink");
+test.set("lion", "golden");
+
+// console.log(test.remove("lion"));
+// console.log(test.keys());
+// console.log(test.values());
+console.log(test.getBuckets(11).toString());
+// console.log(test.remove("kite"));
+// console.log(test.getBuckets());
+
+// test.set("mario", "bros");
+// test.set("Mario", "galaxy");
+// test.set("mario", "sunshine");
+// test.set("mArio", "oddysey");
 // console.log(test.getBuckets(4).toString());
 // console.log(test.remove("mARio"));
-test.set("zelda", "skyward sword");
+// test.set("zelda", "skyward sword");
 // test.remove("mario");
-console.log(test.getBuckets());
-console.log(test.keys());
+// console.log(test.getBuckets());
+// console.log(test.keys());
 // test.clear();
 // console.log(test.getBuckets());
-console.log(test.values());
-console.log(test.length());
-console.log(test.entries());
-
+// console.log(test.values());
+// console.log(test.length());
+// console.log(test.entries());
 // console.log(test.getBuckets());

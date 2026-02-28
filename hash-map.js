@@ -77,7 +77,6 @@ export class HashMap {
       this.#valuesArr.splice(valueIndex, 1);
       linkedList.remove(key);
       this.#size -= 1;
-      // remove entries item
       return true;
     } else {
       return false;
