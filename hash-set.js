@@ -29,6 +29,9 @@ export class HashSet {
   }
 
   set(key) {
+    if (typeof key !== "string") {
+      throw new Error("The key should be a string");
+    }
     let hashCode = this.hash(key);
     this.#isOutOfBounds();
     let linkedList = this.#buckets[hashCode];
@@ -47,6 +50,9 @@ export class HashSet {
   }
 
   has(key) {
+    if (typeof key !== "string") {
+      throw new Error("The key should be a string");
+    }
     const hashCode = this.hash(key);
     this.#isOutOfBounds();
     const linkedList = this.#buckets[hashCode];
@@ -58,6 +64,9 @@ export class HashSet {
   }
 
   remove(key) {
+    if (typeof key !== "string") {
+      throw new Error("The key should be a string");
+    }
     const hashCode = this.hash(key);
     this.#isOutOfBounds();
     const linkedList = this.#buckets[hashCode];
