@@ -13,7 +13,6 @@ export class HashMap {
   #size = 0;
   #keysArr = [];
   #valuesArr = [];
-  #entriesArr = [];
 
   hash(key) {
     if (typeof key !== "string") {
@@ -43,7 +42,6 @@ export class HashMap {
       this.#size += 1;
       this.#keysArr.push(key);
       this.#valuesArr.push(value);
-      this.#entriesArr.push([key, value]);
     }
   }
 
@@ -108,6 +106,15 @@ export class HashMap {
 
   values() {
     return this.#valuesArr;
+  }
+
+  entries() {
+    const entriesArr = [];
+
+    for (let i = 0; i < this.#size; i++) {
+      entriesArr.push([this.#keysArr[i], this.#valuesArr[i]]);
+    }
+    return entriesArr;
   }
 
   getBuckets(index) {
