@@ -13,6 +13,7 @@ export class HashMap {
   #size = 0;
   #keysArr = [];
   #valuesArr = [];
+  #entriesArr = [];
 
   hash(key) {
     if (typeof key !== "string") {
@@ -34,12 +35,15 @@ export class HashMap {
     const linkedList = this.#buckets[hashCode];
     if (linkedList.contains(key)) {
       const node = linkedList.getNode(key);
+      const valueIndex = this.#valuesArr.indexOf(node.value);
+      this.#valuesArr.splice(valueIndex, 1, value);
       node.value = value;
     } else {
       linkedList.append(key, value);
       this.#size += 1;
       this.#keysArr.push(key);
       this.#valuesArr.push(value);
+      this.#entriesArr.push([key, value]);
     }
   }
 
@@ -68,12 +72,14 @@ export class HashMap {
     const hashCode = this.hash(key);
     const linkedList = this.#buckets[hashCode];
     if (linkedList.contains(key)) {
-      linkedList.remove(key);
-      this.#size -= 1;
       const keyIndex = this.#keysArr.indexOf(key);
       this.#keysArr.splice(keyIndex, 1);
+      const value = this.get(key);
       const valueIndex = this.#valuesArr.indexOf(value);
       this.#valuesArr.splice(valueIndex, 1);
+      linkedList.remove(key);
+      this.#size -= 1;
+      // remove entries item
       return true;
     } else {
       return false;
