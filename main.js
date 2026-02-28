@@ -15,15 +15,23 @@ test.set("jacket", "blue");
 test.set("kite", "pink");
 test.set("lion", "golden");
 
+// console.log(test.hash("moon"));
+
 // console.log(test.remove("lion"));
 // console.log(test.keys());
 // console.log(test.values());
+test.set("moon", "silver");
+// test.set("moon", "red");
+// console.log(test.getBuckets());
+// console.log(test.length());
+// test.set("apple", "fruit");
+// test.set("dog", "bark");
+// test.set("moon", "observatory");
 console.log(test.getBuckets());
-console.log(test.length());
-test.set("apple", "fruit");
-test.set("dog", "bark");
-console.log(test.getBuckets());
-console.log(test.length());
+// console.log(test.getBuckets().length);
+// console.log(test.length());
+// console.log(test.keys());
+// console.log(test.values());
 console.log(test.entries());
 // test.set("mario", "bros");
 // test.set("Mario", "galaxy");

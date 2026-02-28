@@ -30,15 +30,20 @@ export class HashMap {
   }
 
   set(key, value) {
-    const hashCode = this.hash(key);
+    let hashCode = this.hash(key);
     this.#isOutOfBounds();
-    const linkedList = this.#buckets[hashCode];
+    let linkedList = this.#buckets[hashCode];
     if (linkedList.contains(key)) {
       const node = linkedList.getNode(key);
       const valueIndex = this.#valuesArr.indexOf(node.value);
       this.#valuesArr.splice(valueIndex, 1, value);
       node.value = value;
     } else {
+      if (this.#size >= this.capacity * this.loadFactor) {
+        this.#grow();
+        hashCode = this.hash(key);
+        linkedList = this.#buckets[hashCode];
+      }
       linkedList.append(key, value);
       this.#size += 1;
       this.#keysArr.push(key);
@@ -124,6 +129,21 @@ export class HashMap {
     if (index < 0 || index >= this.#buckets.length) {
       throw new Error("Trying to access index out of bounds");
     }
+  }
+
+  #grow() {
+    this.capacity = this.capacity * 2;
+    this.#buckets = Array.from(
+      { length: this.capacity },
+      () => new LinkedList(),
+    );
+    const entriesArr = this.entries();
+    this.#size = 0;
+    this.#keysArr = [];
+    this.#valuesArr = [];
+    entriesArr.forEach((entry) => {
+      this.set(entry[0], entry[1]);
+    });
   }
 
   getBuckets(index) {
