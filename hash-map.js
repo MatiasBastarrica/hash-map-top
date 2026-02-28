@@ -31,6 +31,7 @@ export class HashMap {
 
   set(key, value) {
     const hashCode = this.hash(key);
+    this.#isOutOfBounds();
     const linkedList = this.#buckets[hashCode];
     if (linkedList.contains(key)) {
       const node = linkedList.getNode(key);
@@ -47,6 +48,7 @@ export class HashMap {
 
   get(key) {
     const hashCode = this.hash(key);
+    this.#isOutOfBounds();
     const linkedList = this.#buckets[hashCode];
     if (linkedList.contains(key)) {
       const node = linkedList.getNode(key);
@@ -58,6 +60,7 @@ export class HashMap {
 
   has(key) {
     const hashCode = this.hash(key);
+    this.#isOutOfBounds();
     const linkedList = this.#buckets[hashCode];
     if (linkedList.contains(key)) {
       return true;
@@ -68,6 +71,7 @@ export class HashMap {
 
   remove(key) {
     const hashCode = this.hash(key);
+    this.#isOutOfBounds();
     const linkedList = this.#buckets[hashCode];
     if (linkedList.contains(key)) {
       const keyIndex = this.#keysArr.indexOf(key);
@@ -116,8 +120,15 @@ export class HashMap {
     return entriesArr;
   }
 
+  #isOutOfBounds(index) {
+    if (index < 0 || index >= this.#buckets.length) {
+      throw new Error("Trying to access index out of bounds");
+    }
+  }
+
   getBuckets(index) {
     if (typeof index === "number") {
+      this.#isOutOfBounds();
       return this.#buckets[index];
     } else {
       return this.#buckets;

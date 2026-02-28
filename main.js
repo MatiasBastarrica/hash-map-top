@@ -18,10 +18,13 @@ test.set("lion", "golden");
 // console.log(test.remove("lion"));
 // console.log(test.keys());
 // console.log(test.values());
-console.log(test.getBuckets(11).toString());
-// console.log(test.remove("kite"));
-// console.log(test.getBuckets());
-
+console.log(test.getBuckets());
+console.log(test.length());
+test.set("apple", "fruit");
+test.set("dog", "bark");
+console.log(test.getBuckets());
+console.log(test.length());
+console.log(test.entries());
 // test.set("mario", "bros");
 // test.set("Mario", "galaxy");
 // test.set("mario", "sunshine");
