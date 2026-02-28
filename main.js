@@ -1,53 +1,26 @@
 import { HashMap } from "./hash-map.js";
+import { HashSet } from "./hash-set.js";
 
-const test = new HashMap();
+//RUN YOU TEST HERE
 
-test.set("apple", "red");
-test.set("banana", "yellow");
-test.set("carrot", "orange");
-test.set("dog", "brown");
-test.set("elephant", "gray");
-test.set("frog", "green");
-test.set("grape", "purple");
-test.set("hat", "black");
-test.set("ice cream", "white");
-test.set("jacket", "blue");
-test.set("kite", "pink");
-test.set("lion", "golden");
+const test = new HashSet();
 
-// console.log(test.hash("moon"));
+test.set("mario");
+test.set("rosalina");
+test.set("luigi");
+test.set("peach");
+test.set("daisy");
+test.set("link");
+test.set("zelda");
+test.set("mipha");
+test.set("sidon");
+test.set("saria");
+test.set("impa");
+test.set("groose");
 
-// console.log(test.remove("lion"));
-// console.log(test.keys());
-// console.log(test.values());
-test.set("moon", "silver");
-test.set("moon", "red");
-test.set("sun", "rays");
-console.log(test.get("kite"));
-// console.log(test.getBuckets());
-// test.set("apple", "fruit");
-// test.set("dog", "bark");
-// test.set("moon", "observatory");
+// test.set("beedle");
+
 console.log(test.getBuckets());
-// console.log(test.getBuckets().length);
-// console.log(test.length());
-// console.log(test.keys());
-// console.log(test.values());
-console.log(test.entries());
-// test.set("mario", "bros");
 console.log(test.length());
-// test.set("Mario", "galaxy");
-// test.set("mario", "sunshine");
-// test.set("mArio", "oddysey");
-// console.log(test.getBuckets(4).toString());
-// console.log(test.remove("mARio"));
-// test.set("zelda", "skyward sword");
-// test.remove("mario");
-// console.log(test.getBuckets());
-// console.log(test.keys());
-// test.clear();
-// console.log(test.getBuckets());
-// console.log(test.values());
-// console.log(test.length());
-// console.log(test.entries());
-// console.log(test.getBuckets());
+console.log(test.keys());
+console.log(test.capacity);
